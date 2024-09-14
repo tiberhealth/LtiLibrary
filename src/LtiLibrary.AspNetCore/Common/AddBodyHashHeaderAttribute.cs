@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -51,7 +52,9 @@ namespace LtiLibrary.AspNetCore.Common
 
                             var hash = sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(body));
                             var hash64 = Convert.ToBase64String(hash);
-                            request.Headers.Add("BodyHash", hash64);
+                            
+                            if (request.Headers.ContainsKey("BodyHash")) request.Headers.Remove("BodyHash");
+                            request.Headers.TryAdd("BodyHash", hash64);
                         }
                     }
                 }
