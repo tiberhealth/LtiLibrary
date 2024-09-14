@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>    
-    <TargetFramework>netcoreapp3.1</TargetFramework>
     <MinVerTagPrefix>v</MinVerTagPrefix>
+    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
