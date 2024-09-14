@@ -28,7 +28,9 @@ namespace LtiLibrary.NetCore.Common
         /// String representation of the HttpWebResponse similar to Fiddler's.
         /// </summary>
         public string HttpResponse { get; set; }
+        /// <remarks />
         public imsx_SeverityType Severity { get; internal set; }
+        /// <remarks />
         public imsx_CodeMinorFieldType[] MinorCode { get; internal set; }
     }
 

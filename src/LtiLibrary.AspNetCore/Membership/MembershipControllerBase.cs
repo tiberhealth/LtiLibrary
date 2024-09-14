@@ -131,7 +131,9 @@ namespace LtiLibrary.AspNetCore.Membership
         /// </summary>
         /// <param name="value">The content value to format in the entity body.</param>
         /// <returns>The created <see cref="UnauthorizedResponse" /> for the response.</returns>
+#pragma warning disable CS0108, CS0114
         public UnauthorizedResponse Unauthorized(object value)
+#pragma warning restore CS0108, CS0114
         {
             return new UnauthorizedResponse(value);
         }

@@ -6,7 +6,6 @@
     <AssemblyTitle>LtiLibrary.NetCore</AssemblyTitle>
     <Version>3.1.1</Version>
     <Authors>andyfmiller.com</Authors>
-    <TargetFrameworks>netstandard1.6;netstandard2.0</TargetFrameworks>
     <AssemblyName>LtiLibrary.NetCore</AssemblyName>
     <PackageId>LtiLibrary.NetCore</PackageId>
     <PackageTags>IMS;LTI;.NET Core</PackageTags>
@@ -15,10 +14,11 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/LtiLibrary/LtiLibrary</RepositoryUrl>
     <MinVerTagPrefix>v</MinVerTagPrefix>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinVer" Version="2.2.0">
+    <PackageReference Include="MinVer" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
