@@ -1,3 +1,5 @@
+.idea
+
 AuthConfig.cs
 *.nuspec
 *.nupkg
