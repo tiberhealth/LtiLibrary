@@ -1,3 +1,6 @@
+# LTI Library - Tiber Health Innovations Port / Fork
+This is a port of the LTI Library to DotNet 8.0 and the removal of the DotNet Standard dependancies due to security issues and Vulnerabilities. 
+
 # LTI Library
 There are two .NET Standard 1.6/2.0 projects in this solution to support IMS LTI Tool Providers and Tool Consumers. The Visual Studio solution and project files are compatible with Visual Studio 2019.
 
