@@ -14,7 +14,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/LtiLibrary/LtiLibrary</RepositoryUrl>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    <TargetFrameworks>net8.0;net7.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -24,10 +24,6 @@
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.33" />
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="8.0.0" />
-    <PackageReference Include="MinVer" Version="6.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
