@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using LtiLibrary.AspNetCore.Tests.SimpleHelpers;
 using LtiLibrary.NetCore.Clients;
 using LtiLibrary.NetCore.Common;
@@ -30,7 +31,7 @@ namespace LtiLibrary.AspNetCore.Tests.Profiles
         }
 
         [Fact]
-        public async void ReturnAToolConsumerProfile()
+        public async Task ReturnAToolConsumerProfile()
         {
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(LtiConstants.LtiToolConsumerProfileMediaType));
@@ -46,7 +47,7 @@ namespace LtiLibrary.AspNetCore.Tests.Profiles
         }
 
         [Fact]
-        public async void ReturnAToolConsumerProfile_FromGetToolConsumerProfileAsync()
+        public async Task ReturnAToolConsumerProfile_FromGetToolConsumerProfileAsync()
         {
             var clientResponse = await ToolConsumerProfileClient.GetToolConsumerProfileAsync(_client, "/ims/toolconsumerprofile");
             Assert.Equal(HttpStatusCode.OK, clientResponse.StatusCode);

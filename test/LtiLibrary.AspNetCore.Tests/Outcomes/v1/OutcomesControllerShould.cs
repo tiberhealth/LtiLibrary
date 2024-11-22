@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using LtiLibrary.NetCore.Clients;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
@@ -32,7 +33,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void ReplaceResult_WhenCultureIsEN()
+        public async Task ReplaceResult_WhenCultureIsEN()
         {
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-EN");
             var replaceResult = await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -44,7 +45,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void ReplaceResult_WhenCultureIsNL()
+        public async Task ReplaceResult_WhenCultureIsNL()
         {
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("nl-NL");
             var replaceResult = await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -56,7 +57,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void ReadResult_WhenCultureIsEN()
+        public async Task ReadResult_WhenCultureIsEN()
         {
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-EN");
             await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -67,7 +68,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void ReadResult_WhenCultureIsNL()
+        public async Task ReadResult_WhenCultureIsNL()
         {
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("nl-NL");
             await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -78,7 +79,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void DeleteResult()
+        public async Task DeleteResult()
         {
             await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
             var deleteResult = await Outcomes1Client.DeleteResultAsync(_client, Url, Key, Secret, Id);
@@ -88,7 +89,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void NotReplaceResult_IfUsingDifferentSecrets()
+        public async Task NotReplaceResult_IfUsingDifferentSecrets()
         {
             // First verify that plumbing works if secret is correct
             var replaceResult = await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -103,14 +104,14 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         [InlineData(null)]
         [InlineData(-.01)]
         [InlineData(1.01)]
-        public async void NotReplaceResult_IfScoreIsInvalid(double? score)
+        public async Task NotReplaceResult_IfScoreIsInvalid(double? score)
         {
             var replaceResult = await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, score);
             Assert.True(replaceResult.StatusCode == HttpStatusCode.BadRequest, $"{replaceResult.StatusCode} == {HttpStatusCode.BadRequest}");
         }
 
         [Fact]
-        public async void NotReadResult_IfUsingDifferentSecrets()
+        public async Task NotReadResult_IfUsingDifferentSecrets()
         {
             // First verify that plumbing works if secret is correct
             await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -123,7 +124,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         }
 
         [Fact]
-        public async void NotDeleteResult_IfUsingDifferentSecrets()
+        public async Task NotDeleteResult_IfUsingDifferentSecrets()
         {
             // First verify that plumbing works if secret is correct
             await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value);
@@ -141,7 +142,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v1
         [InlineData(null, "some url", null)]
         [InlineData(null, null, "some lti url")]
         [InlineData("some text", "some url", "some lti url")]
-        public async void ReplaceResultWithData_WhenDataIsSupplied(string text, string url, string ltiLaunchUrl)
+        public async Task ReplaceResultWithData_WhenDataIsSupplied(string text, string url, string ltiLaunchUrl)
         {
             await Outcomes1Client.ReplaceResultAsync(_client, Url, Key, Secret, Id, Value, text, url, ltiLaunchUrl);
             var readResult = await Outcomes1Client.ReadResultAsync(_client, Url, Key, Secret, Id);

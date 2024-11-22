@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using LtiLibrary.NetCore.Clients;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
@@ -28,7 +29,7 @@ namespace LtiLibrary.AspNetCore.Tests.Membership
         }
 
         [Fact]
-        public async void ReturnNotFound_WhenControllerHasNotImplementedOnGetMembershipAsync()
+        public async Task ReturnNotFound_WhenControllerHasNotImplementedOnGetMembershipAsync()
         {
             // Given a working LTI Membership Service endpoint
             // When I call GetMembershipPageAsync
@@ -38,7 +39,7 @@ namespace LtiLibrary.AspNetCore.Tests.Membership
         }
 
         [Fact]
-        public async void ReturnNotFound_WhenEndpointDoesNotExist()
+        public async Task ReturnNotFound_WhenEndpointDoesNotExist()
         {
             // Given a non-existent LTI Membership Service endpoint
             // When I call GetMembershipPageAsync

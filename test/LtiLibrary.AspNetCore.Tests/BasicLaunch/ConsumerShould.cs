@@ -33,7 +33,7 @@ namespace LtiLibrary.AspNetCore.Tests.BasicLaunch
         }
 
         [Fact]
-        public async void EncodeBasicLaunchFormValues_Using_HttpResponseExtensions_WriteLtiRequest()
+        public async Task EncodeBasicLaunchFormValues_Using_HttpResponseExtensions_WriteLtiRequest()
         {
             var url = new Uri(_client.BaseAddress, "toolconsumer/launch");
             var response = (await _client.GetStringAsync(url)).Replace("\r\n", "\n");
@@ -44,7 +44,7 @@ namespace LtiLibrary.AspNetCore.Tests.BasicLaunch
         [Theory]
         [InlineData("en-US")]
         [InlineData("nl-NL")]
-        public async void LaunchATool_WithValidCredentials(string lcid)
+        public async Task LaunchATool_WithValidCredentials(string lcid)
         {
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(lcid);
 
@@ -63,7 +63,7 @@ namespace LtiLibrary.AspNetCore.Tests.BasicLaunch
         }
 
         [Fact]
-        public async void NotLaunchATool_WithInvalidCredentials()
+        public async Task NotLaunchATool_WithInvalidCredentials()
         {
             var ltiRequest = GetLtiLaunchRequest();
 

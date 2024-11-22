@@ -34,7 +34,7 @@ namespace LtiLibrary.AspNetCore.Tests.ContentItems
         [Theory]
         [InlineData("en-US")]
         [InlineData("nl-NL")]
-        public async void LaunchAContentItemSelectionTool_WithValidCredentials(string lcid)
+        public async Task LaunchAContentItemSelectionTool_WithValidCredentials(string lcid)
         {
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(lcid);
 
@@ -53,7 +53,7 @@ namespace LtiLibrary.AspNetCore.Tests.ContentItems
         }
 
         [Fact]
-        public async void NotLaunchAContentItemSelectionTool_WithInvalidCredentials()
+        public async Task NotLaunchAContentItemSelectionTool_WithInvalidCredentials()
         {
             var ltiRequest = GetLtiContentItemSelectionRequest("contentitemsprovider/library");
 
@@ -67,7 +67,7 @@ namespace LtiLibrary.AspNetCore.Tests.ContentItems
         }
 
         [Fact]
-        public async void NotLaunchAContentItemSelectionTool_WithInvalidMessageType()
+        public async Task NotLaunchAContentItemSelectionTool_WithInvalidMessageType()
         {
             var ltiRequest = GetLtiContentItemSelectionRequest("contentitemsprovider/library");
             ltiRequest.LtiMessageType = LtiConstants.BasicLaunchLtiMessageType;
@@ -82,7 +82,7 @@ namespace LtiLibrary.AspNetCore.Tests.ContentItems
         }
 
         [Fact]
-        public async void GetContentItemSelection()
+        public async Task GetContentItemSelection()
         {
             var ltiRequest = GetLtiContentItemSelectionRequest("contentitemsprovider/librarythatreturnsselection");
 

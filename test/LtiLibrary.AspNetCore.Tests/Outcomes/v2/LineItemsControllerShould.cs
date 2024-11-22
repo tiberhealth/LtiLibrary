@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using LtiLibrary.NetCore.Lis.v2;
 using LtiLibrary.NetCore.Clients;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void ReturnNotFound_IfThereIsNoMatchingLineItem()
+        public async Task ReturnNotFound_IfThereIsNoMatchingLineItem()
         {
             _fixture.InitializeData();
 
@@ -41,7 +42,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void ReturnNotFound_IfThereAreNoMatchingLineItems()
+        public async Task ReturnNotFound_IfThereAreNoMatchingLineItems()
         {
             _fixture.InitializeData();
 
@@ -51,7 +52,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void ReturnLineItem_WhenValidLineItemIsPosted()
+        public async Task ReturnLineItem_WhenValidLineItemIsPosted()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem {LineItemOf = new Context {ContextId = OutcomesDataFixture.ContextId }};
@@ -64,7 +65,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void ReturnLineItem_WhenValidLineItemIsRequested()
+        public async Task ReturnLineItem_WhenValidLineItemIsRequested()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };
@@ -80,7 +81,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void PostLineItem_WhenSecretIsCorrect()
+        public async Task PostLineItem_WhenSecretIsCorrect()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };
@@ -91,7 +92,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void NotPostLineItem_WhenSecretIsIncorrect()
+        public async Task NotPostLineItem_WhenSecretIsIncorrect()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };
@@ -102,7 +103,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void NotPutLineItem_WhenLineItemDoesNotExist()
+        public async Task NotPutLineItem_WhenLineItemDoesNotExist()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };
@@ -113,7 +114,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void PutLineItem_WhenSecretIsCorrect()
+        public async Task PutLineItem_WhenSecretIsCorrect()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };
@@ -132,7 +133,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void NotPutLineItem_WhenSecretIsNotCorrect()
+        public async Task NotPutLineItem_WhenSecretIsNotCorrect()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };
@@ -143,7 +144,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void NotDeleteLineItem_WhenLineItemDoesNotExist()
+        public async Task NotDeleteLineItem_WhenLineItemDoesNotExist()
         {
             _fixture.InitializeData();
             var url = $"/ims/courses/{OutcomesDataFixture.ContextId}/lineitems/nolineitem";
@@ -152,7 +153,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void NotDeleteLineItem_WhenSecretIsNotCorrect()
+        public async Task NotDeleteLineItem_WhenSecretIsNotCorrect()
         {
             _fixture.InitializeData();
             var url = $"/ims/courses/{OutcomesDataFixture.ContextId}/lineitems/nolineitem";
@@ -161,7 +162,7 @@ namespace LtiLibrary.AspNetCore.Tests.Outcomes.v2
         }
 
         [Fact]
-        public async void DeleteLineItem_WhenLineItemExists()
+        public async Task DeleteLineItem_WhenLineItemExists()
         {
             _fixture.InitializeData();
             var lineitem = new LineItem { LineItemOf = new Context { ContextId = OutcomesDataFixture.ContextId } };

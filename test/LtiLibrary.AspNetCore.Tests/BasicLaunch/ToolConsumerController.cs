@@ -1,4 +1,5 @@
-﻿using LtiLibrary.AspNetCore.Extensions;
+﻿using System.Threading.Tasks;
+using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lti.v1;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ namespace LtiLibrary.AspNetCore.Tests.BasicLaunch
         /// <summary>
         /// Return a basic launch form that contains a value that should be encoded
         /// </summary>
-        public async void Launch()
+        public async Task Launch()
         {
             var request = new LtiRequest(LtiConstants.BasicLaunchLtiMessageType)
             {

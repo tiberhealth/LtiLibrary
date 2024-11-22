@@ -14,7 +14,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/LtiLibrary/LtiLibrary</RepositoryUrl>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <LangVersion>13</LangVersion>
   </PropertyGroup>
 
