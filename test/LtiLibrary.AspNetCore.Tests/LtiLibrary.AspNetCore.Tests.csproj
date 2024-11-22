@@ -3,7 +3,7 @@
   <PropertyGroup>    
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <LangVersion>13</LangVersion>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
